@@ -14,6 +14,7 @@ const app = express();
 
 //middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 /*
 method  GET
@@ -47,12 +48,13 @@ app.get("/", async (req, res) => {
 })
 
 /*
-method  POST
-route   /CODE/${id}
+method  GET
+route   /CODE/..
 body    get move associated with code 
 */
-app.post("/CODE", async (req, res) => {
-    let codeId = req.body.id;
+app.get("/CODE/:id", async (req, res) => {
+    let codeId = req.params.id;
+    console.log(codeId)
     let data;
     if (myCache.has("movesList")) {
         const movesList = myCache.get("movesList");
