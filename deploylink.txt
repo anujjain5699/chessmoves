@@ -1,0 +1,2 @@
+fetch all moves : https://chessmoves.herokuapp.com/
+fetch specific : https://chessmoves.herokuapp.com/CODE/{id_here}
